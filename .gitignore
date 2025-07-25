@@ -1,0 +1,9 @@
+# IDE-specific files
+.idea/
+
+# Build directories
+cmake-build-debug/
+
+# Temporary files
+*.log
+*.tmp
