@@ -3,6 +3,8 @@ project(learn_structure)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(learn_structure src/main.cpp
+add_executable(learn_structure
+        src/main.cpp
         include/list.h
-        src/list.cpp)
+        src/list.cpp
+        include/head.h)
