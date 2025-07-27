@@ -100,11 +100,15 @@ namespace LinkList {
         return true;
     }
 
-    bool ListDelete(LinkList &L, int i, ElemType &e){}
+    bool ListDelete(LinkList &L, int i, ElemType &e) {
+    }
 
-    int LocateElem(const LinkList &L, ElemType e){}
+    int LocateElem(const LinkList &L, ElemType e) {
+    }
 
-    void ListInsertFront(LinkList &L, ElemType e){}
+    void ListInsertFront(LinkList &L, ElemType e) {
+    }
 
-    void ListInsertNext(LinkList &L, ElemType e){}
+    void ListInsertNext(LinkList &L, ElemType e) {
+    }
 }
