@@ -43,4 +43,25 @@ namespace SeqList {
     void IncreaseSize(SeqList &L, int len);
 }
 
+namespace LinkList {
+    //带头结点单链表
+    typedef struct Node {
+        ElemType data;
+        Node *next;
+    } Node, *LinkList;
+
+    void InitList(LinkList &L);
+
+    void DestroyList(LinkList &L);
+
+    bool ListInsert(LinkList &L, int i, ElemType e);
+
+    bool ListDelete(LinkList &L, int i, ElemType &e);
+
+    int LocateElem(const LinkList &L, ElemType e);
+
+    void ListInsertFront(LinkList &L, ElemType e);
+
+    void ListInsertNext(LinkList &L, ElemType e);
+}
 #endif //LIST_H

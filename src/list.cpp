@@ -65,3 +65,46 @@ namespace SeqList {
         delete[] p;
     }
 }
+
+namespace LinkList {
+    void InitList(LinkList &L) {
+        L = new Node;
+        L->next = nullptr;
+    }
+
+    void DestroyList(LinkList &L) {
+        while (L) {
+            const Node *p = L;
+            L = L->next;
+            delete p;
+        }
+    }
+
+    bool ListInsert(LinkList &L, const int i, const ElemType e) {
+        //1.判断i的合法性和是否空链
+        if (i < 1 || L == nullptr)
+            return false;
+        int count{};
+        Node *p = L;
+        //2.找到第i-1个结点；存在边界检查：i>链表长度时定位到最后一个节点
+        while (count < i - 1 && p->next != nullptr) {
+            p = p->next;
+            count++;
+        }
+        const auto s = new(std::nothrow) Node;
+        if (s == nullptr)
+            return false;
+        s->data = e;
+        s->next = p->next;
+        p->next = s;
+        return true;
+    }
+
+    bool ListDelete(LinkList &L, int i, ElemType &e){}
+
+    int LocateElem(const LinkList &L, ElemType e){}
+
+    void ListInsertFront(LinkList &L, ElemType e){}
+
+    void ListInsertNext(LinkList &L, ElemType e){}
+}
