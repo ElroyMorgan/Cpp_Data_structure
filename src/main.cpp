@@ -1,16 +1,66 @@
 #include <iostream>
+#include "../include/stack.h"
+#include "../include/queue.h"
+void test_stack_link();
+void test_queue();
 
-// TIP 要<b>Run</b>代码，请按 <shortcut actionId="Run"/> 或点击装订区域中的 <icon src="AllIcons.Actions.Execute"/> 图标。
 int main() {
-    // TIP 当文本光标位于 <b>lang</b> 变量名称处时，按 <shortcut actionId="RenameElement"/> 可以查看 CLion 如何帮助您重命名该变量。
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
-
-    for (int i = 1; i <= 5; i++) {
-        // TIP 按 <shortcut actionId="Debug"/> 开始调试代码。我们已为您设置了一个 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 断点，但您可以随时按 <shortcut actionId="ToggleLineBreakpoint"/> 添加更多断点。
-        std::cout << "i = " << i << std::endl;
-    }
-
+    //test_stack_link();
+    test_queue();
     return 0;
-    // TIP 请访问 <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a> 查看 CLion 帮助。此外，您还可以从主菜单中选择“帮助 | 学习 IDE 功能”，尝试 CLion 的交互式课次。
+}
+
+void test_stack_link() {
+    // 测试栈功能
+    std::cout << "\n--- 测试栈功能 ---" << std::endl;
+    stack::Stack stack;
+
+    // 测试push操作
+    std::cout << "压入元素: 10, 20, 30" << std::endl;
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+
+    // 测试pop操作
+    std::cout << "弹出元素: " << stack.pop() << std::endl;
+    std::cout << "弹出元素: " << stack.pop() << std::endl;
+    std::cout << "弹出元素: " << stack.pop() << std::endl;
+
+    // 再次压入并弹出
+    std::cout << "压入元素: 40, 50" << std::endl;
+    stack.push(40);
+    stack.push(50);
+    std::cout << "弹出元素: " << stack.pop() << std::endl;
+    std::cout << "弹出元素: " << stack.pop() << std::endl;
+}
+
+void test_queue() {
+    // 测试队列功能
+    std::cout << "\n--- 测试队列功能 ---" << std::endl;
+    sq_queue::Queue queue;
+    
+    // 初始化队列
+    sq_queue::InitQueue(queue);
+    
+    // 测试入队操作
+    std::cout << "入队元素: 10, 20, 30" << std::endl;
+    sq_queue::EnQueue(queue, 10);
+    sq_queue::EnQueue(queue, 20);
+    sq_queue::EnQueue(queue, 30);
+    
+    // 测试出队操作
+    int e;
+    sq_queue::DeQueue(queue, e);
+    std::cout << "出队元素: " << e << std::endl;
+    sq_queue::DeQueue(queue, e);
+    std::cout << "出队元素: " << e << std::endl;
+    
+    // 再次入队并出队
+    std::cout << "入队元素: 40, 50" << std::endl;
+    sq_queue::EnQueue(queue, 40);
+    sq_queue::EnQueue(queue, 50);
+    sq_queue::DeQueue(queue, e);
+    std::cout << "出队元素: " << e << std::endl;
+    sq_queue::DeQueue(queue, e);
+    std::cout << "出队元素: " << e << std::endl;
 }

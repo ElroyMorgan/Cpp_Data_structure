@@ -5,7 +5,6 @@
 
 namespace SqList {
     void InitList(SqList& L) {
-        L.data = {0};
         L.length = 0;
     }
 
