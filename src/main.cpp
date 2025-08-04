@@ -5,8 +5,6 @@ void test_stack_link();
 void test_queue();
 
 int main() {
-    //test_stack_link();
-    test_queue();
     return 0;
 }
 

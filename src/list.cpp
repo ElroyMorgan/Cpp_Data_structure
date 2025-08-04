@@ -43,6 +43,71 @@ namespace SqList {
         }
         return -1;
     }
+
+    bool Del_Min(SqList& L, ElemType& e) {
+        if (L.length==0) {
+            return false;
+        }
+        int pos{0};
+        ElemType del{L.data[pos]};
+        for (int i=1;i<L.length;i++){
+            if (del>L.data[pos]) {
+                del=L.data[pos];
+                pos=i;
+            }
+        }
+        e=del;
+        L.data[pos]=L.data[L.length-1];
+        L.length--;
+        return true;
+    }
+    void Reverse(SqList& L) {
+        ElemType temp{};
+        for (int i{0};i<L.length/2;i++) {
+            temp=L.data[i];
+            L.data[i]=L.data[L.length-1-i];
+            L.data[L.length-1-i]=temp;
+        }
+    }
+    void del_all_x(SqList& L,const int x) {
+        int k=0;
+        for (int i = 0;i<L.length;i++) {
+            if (L.data[i]!=x) {
+                L.data[k]=L.data[i];
+                k++;
+            }
+        }
+        L.length=k;
+    }
+
+    bool del_s_to_t(SqList& L,int s,int t) {
+        // if (L.length==0 && s>=t)
+        //     return false;
+        // int k=0;
+        // for (int i=0;i<L.length;i++) {
+        //     if (L.data[i]<s ||L.data[i] >t) {
+        //         L.data[k]=L.data[i];
+        //         k++;
+        //     }
+        // }
+        // L.length=k;
+        // return true;
+
+        int k=0;
+        if (L.length==0 && s>=t) {
+            return false;
+        }
+        for (int i=0;i<L.length;i++) {
+            if (L.data[i]>=s && L.data[i]<=t)
+                k++;
+            else
+                L.data[i-k]=L.data[i];
+        }
+        L.length -= k;
+        return true;
+    }
+
+
 }
 
 namespace SeqList {
@@ -52,7 +117,7 @@ namespace SeqList {
         L.MaxSize = INIT_SIZE;
     }
 
-    void IncreaseSize(SeqList& L, int len) {
+    void IncreaseSize(SeqList& L, const int len) {
         const ElemType* p = L.data;
         L.data = new ElemType[L.MaxSize + len];
         for (int i{0}; i < L.length + len; i++) {
@@ -65,7 +130,7 @@ namespace SeqList {
 
 namespace LinkList {
     void InitList(LinkList& L) {
-        L = new Node;
+        L = new(std::nothrow) Node;
         L->next = nullptr;
     }
 

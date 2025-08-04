@@ -11,4 +11,5 @@ add_executable(learn_structure
         src/stack.cpp
         include/stack.h
         include/queue.h
-        src/queue.cpp)
+        src/queue.cpp
+)

@@ -29,6 +29,16 @@ namespace SqList {
 
     //按值查找
     int LocateElem(const SqList& L, ElemType e);
+
+    //王道19页
+    //01
+    bool Del_Min(SqList& L, ElemType& e);
+    //02
+    void Reverse(SqList& L);
+    //03
+    void del_all_x(SqList& L,int x);
+    //04
+    bool del_s_to_t(SqList& L,int s,int t);
 }
 
 //动态分配顺序表
